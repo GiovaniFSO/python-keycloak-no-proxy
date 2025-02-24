@@ -99,6 +99,7 @@ class ConnectionManager:
         self.cert = cert
         self._s = requests.Session()
         self._s.auth = lambda x: x  # don't let requests add auth headers
+        self.proxies={'http': None, 'https': None}
 
         # retry once to reset connection with Keycloak after  tomcat's ConnectionTimeout
         # see https://github.com/marcospereirampj/python-keycloak/issues/36
@@ -264,6 +265,7 @@ class ConnectionManager:
                 timeout=self.timeout,
                 verify=self.verify,
                 cert=self.cert,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -292,6 +294,7 @@ class ConnectionManager:
                 timeout=self.timeout,
                 verify=self.verify,
                 cert=self.cert,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -320,6 +323,7 @@ class ConnectionManager:
                 timeout=self.timeout,
                 verify=self.verify,
                 cert=self.cert,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -348,6 +352,7 @@ class ConnectionManager:
                 timeout=self.timeout,
                 verify=self.verify,
                 cert=self.cert,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -371,6 +376,7 @@ class ConnectionManager:
                 params=self._filter_query_params(kwargs),
                 headers=self.headers,
                 timeout=self.timeout,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -398,6 +404,7 @@ class ConnectionManager:
                 data=data,
                 headers=self.headers,
                 timeout=self.timeout,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -424,6 +431,7 @@ class ConnectionManager:
                 data=data,
                 headers=self.headers,
                 timeout=self.timeout,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
@@ -456,6 +464,7 @@ class ConnectionManager:
                 params=self._filter_query_params(kwargs),
                 headers=self.headers,
                 timeout=self.timeout,
+                proxies={'http': None, 'https': None}
             )
         except Exception as e:
             msg = "Can't connect to server"
